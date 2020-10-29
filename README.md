@@ -28,7 +28,7 @@ The resulting output can be seen in the screenshot below.
 
 <img src="img/total_summary.PNG">
 
-This table shows only 76.2 pounds per square inch over all manufacturing lots, which is promising. However, upon closer inspection through grouping the lots together:
+This table of the dataset overall shows only 76.2 pounds per square inch over all manufacturing lots, which is promising. However, upon closer inspection through grouping the lots together:
 
 <img src="img/lot_summary.PNG">
 
