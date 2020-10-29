@@ -1,5 +1,9 @@
 # MechaCar Statistical Analysis
 
+​	
+
+AutosRUs’ newest prototype, the MechaCar, is suffering from production troubles that are blocking the manufacturing team’s progress. This is an exploratory analysis to pinpoint the problems in order to find solutions. 
+
 
 
 ### Linear Regression to Predict MPG
@@ -29,4 +33,49 @@ This table shows only 76.2 pounds per square inch over all manufacturing lots, w
 <img src="img/lot_summary.PNG">
 
 Lots 1 and 2 show quite a low variance compared to Lot 3, which shows more than twice the maximum allowable variance. This vast difference in values explains why the overall measure looks acceptable while the true results are not.  
+
+
+
+### T-Tests on Suspension Coils
+
+​	 To further investigate the manufacturing problems with PSI, I completed a series of  one-sample T-Tests to look for differences in distribution among samples and the population. For each test the hypotheses are as follows:
+
+- H<sub>0</sub>: There is no significant statistical difference between the observed sample mean and the population mean of 1500. 
+- H<sub>a</sub>: There *is* a significant statistical difference between the observed mean and the population mean. 
+
+The first test compares the overall sample mean from all lots with the given population mean of 1500 PSI. The resulting output is shown below:
+
+<img src = "img/overall_t.PNG">
+
+The p-value calculated by this test is 0.5 which is *not* significant compared to the alpha of 0.05. Thus, I fail to reject the null hypothesis, meaning that any differences between the overall sample mean and the population mean are the result of random chance rather than external factors. 
+
+
+
+​	Following that, I decided to test a subset of the samples, grouped by Manufacturing Lot, against the population mean of 1500. The resulting p-value from each of the three tests is greater than our alpha value of 0.05. Thus, in every case, we fail to reject the null hypothesis. Any difference between the sample and population mean PSI must be due to random chance.  I thought this was slightly strange because of the vast difference in the variance displayed in the above tables, so I decided to take a look at a visualization of each lot, which brought up some interesting questions. The T-Test results and visualizations for all 3 lots are below:
+
+
+
+<img src="img/lot1_t.PNG"> <img src="img/plot1.PNG">
+
+
+
+<img src="img/lot2_t.PNG"><img src="img/plot2.PNG ">
+
+
+
+<img src="img/lot3_t.PNG"><img src="img/plot3.PNG">
+
+
+
+
+
+The visualizations make it clear that Lot 1's measurements are fairly skewed to the left, despite the mean and median being quite similar, and the density is an order of magnitude larger than the other two.  I decided to look further into the assumptions made at the beginning of this analysis.
+
+All testing done on the suspension coil metrics has been performed on the assumption that the data is approximately normal with a similar variance across groups.  It was clear from the first summary of the PSI data that the variance shows great differences across groups, but with no hypothetical population comparison, I continued exploring. Based on these results, however, I decided to test the full dataset for normality, both quantitatively and qualitatively.
+
+ <img src ="img/normality_test.PNG"><img src="img/overall_dist.PNG">
+
+ 
+
+Both of these tests clearly indicate that the dataset is not normally distributed. The Shapiro-Wilk normality test produces a p-value much smaller than 0.05, which is *not* a good thing in this case, and the visualization lacks the typical "bell curve" shape. Because of these discoveries, additional testing must be performed that is more applicable to the dataset. 
 
