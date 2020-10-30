@@ -8,7 +8,7 @@ AutosRUs’ newest prototype, the MechaCar, is suffering from production trouble
 
 ### Linear Regression to Predict MPG
 
-​	To predict the effect of each variable in the given dataset on the MPG rating of the new MechaCar, I performed a multiple linear regression model. For the model, the null and alternative hypotheses are:
+To predict the effect of each variable in the given dataset on the MPG rating of the new MechaCar, I performed a multiple linear regression model. For the model, the null and alternative hypotheses are:
 
 - H<sub>0</sub> : The slope of the linear model is 0, indicating that there is no significant linear relationship.
 
@@ -18,13 +18,13 @@ The resulting output can be seen in the screenshot below.
 
 <img src="img/lm.PNG">
 
-​	In this test, the significant variables are the vehicle length and ground clearance, as well as the intercept. These provide a non-random amount of variance to the MPG values in the dataset. Because they are significant, we can reject the null hypothesis, meaning that the slope of the model is not 0 and that there *is* a relationship between at least some of the variables and the MPG measurement. Despite this, our model doesn't provide a completely accurate prediction of MPG. The R<sup>2</sup> value is 0.71, which indicates a strong correlation, but as we can see there are factors included which don't significantly influence the outcome. In addition, the intercept being significant indicates that there are other variables and factors that contribute to the variation that have not been included in the model. 
+In this test, the significant variables are the vehicle length and ground clearance, as well as the intercept. These provide a non-random amount of variance to the MPG values in the dataset. Because they are significant, we can reject the null hypothesis, meaning that the slope of the model is not 0 and that there *is* a relationship between at least some of the variables and the MPG measurement. Despite this, our model doesn't provide a completely accurate prediction of MPG. The R<sup>2</sup> value is 0.71, which indicates a strong correlation, but as we can see there are factors included which don't significantly influence the outcome. In addition, the intercept being significant indicates that there are other variables and factors that contribute to the variation that have not been included in the model. 
 
 
 
 ### Summary Statistics on Suspension Coils
 
-​	The design specifications for the MechaCar state that the variance of the suspension coils <u>must not exceed</u> 100 pounds per square inch. To ensure that this specification is being adhered to, I created data frames containing the summary statistics on suspension coil data from three different manufacturing lots, pictured below. 
+The design specifications for the MechaCar state that the variance of the suspension coils <u>must not exceed</u> 100 pounds per square inch. To ensure that this specification is being adhered to, I created data frames containing the summary statistics on suspension coil data from three different manufacturing lots, pictured below. 
 
 <img src="img/total_summary.PNG">
 
@@ -38,7 +38,7 @@ Lots 1 and 2 show quite a low variance compared to Lot 3, which shows more than 
 
 ### T-Tests on Suspension Coils
 
-​	 To further investigate the manufacturing problems with PSI, I completed a series of  one-sample T-Tests to look for differences in distribution among samples and the population. For each test the hypotheses are as follows:
+To further investigate the manufacturing problems with PSI, I completed a series of  one-sample T-Tests to look for differences in distribution among samples and the population. For each test the hypotheses are as follows:
 
 - H<sub>0</sub>: There is no significant statistical difference between the observed sample mean and the population mean of 1500. 
 - H<sub>a</sub>: There *is* a significant statistical difference between the observed mean and the population mean. 
@@ -51,7 +51,7 @@ The p-value calculated by this test is 0.5 which is *not* significant compared t
 
 
 
-​	Following that, I decided to test a subset of the samples, grouped by Manufacturing Lot, against the population mean of 1500. The resulting p-value from each of the three tests is greater than our alpha value of 0.05. Thus, in every case, we fail to reject the null hypothesis. Any difference between the sample and population mean PSI must be due to random chance.  I thought this was slightly strange because of the vast difference in the variance displayed in the above tables, so I decided to take a look at a visualization of each lot, which brought up some interesting questions. The T-Test results and visualizations for all 3 lots are below:
+Following that, I decided to test a subset of the samples, grouped by Manufacturing Lot, against the population mean of 1500. The resulting p-value from each of the three tests is greater than our alpha value of 0.05. Thus, in every case, we fail to reject the null hypothesis. Any difference between the sample and population mean PSI must be due to random chance.  I thought this was slightly strange because of the vast difference in the variance displayed in the above tables, so I decided to take a look at a visualization of each lot, which brought up some interesting questions. The T-Test results and visualizations for all 3 lots are below:
 
 
 
@@ -102,7 +102,7 @@ These metrics would be used to perform a few different tests, based on different
 
 ##### Distribution Assessment and Normalization
 
-The first thing I would do would be to test for normality cross the distribution of the sample data collected. If the data passed the Shapiro-Wilk Normality Test, I would just move on to the next set of tests. If it didn't, I would attempt to see if I could transform the data into a normal distribution using a log-transform. If the data was still unable to approximate a normal distribution, I would return to the collection phase. However, for the purposes of this design, we will assume that the sample size is sufficient, the data approximates a normal distribution, and there is not a large amount of variance between groups. 
+The first thing I would do would be to test for normality across the distribution of the sample data collected. If the data passed the Shapiro-Wilk Normality Test, I would just move on to the next set of tests. If it didn't, I would attempt to see if I could transform the data into a normal distribution using a log-transform. If the data was still unable to approximate a normal distribution, I would return to the collection phase. However, for the purposes of this design, we will assume that the sample size is sufficient, the data approximates a normal distribution, and there is not a large amount of variance between groups. 
 
 
 
@@ -147,9 +147,15 @@ The second phase of testing I would perform would be two linear regression model
 
 
 
+##### Concluding Notes
+
+This design is by no means conclusive. There are certainly opportunities to do ANOVA testing, as well as to collect additional categorical/frequency data to use with a chi-squared test. Additionally, because this design doesn't address the data collection means, it doesn't account for bias in reporting. I think it could also be interesting to compare the effects of additional features of each car (ie: back-up camera, sound system, etc) and the cost both popularity and market saturation. 
 
 
-[^1]: Note: I would normally test for normality before doing a number of tests based on normal assumptions. However, I was following the structure of an exercise, assuming that the dataset provided would be a good fit for the tests required. Additionally, the new study design does not address these concerns, but does attempt to avoid them by gathering new data. 
+
+
+
+[^1]: Note: I would usually test for normality before doing a number of tests based on normal assumptions. However, I was following the structure of an exercise, assuming that the dataset provided would be a good fit for the tests required. Additionally, the new study design does not address these concerns, but does attempt to avoid them by gathering new data. 
 
 
 
